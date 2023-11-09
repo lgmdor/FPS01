@@ -4,15 +4,14 @@ using UnityEngine;
 using System;
 
 public class PlayerMovement : MonoBehaviour {
-
-	private CharacterController controller;
-
 	public static PlayerMovement Instance;
 
 	public Vector3 velocity = Vector3.zero;
 	public StateMachine SM;
 
-	private Vector3 directionBeforeWallSticking = Vector3.zero;
+	private CharacterController controller;
+
+	private Vector3 directionBeforeWallSticking = Vector2.zero;
 	private Vector3 lastHitWallNormal = Vector3.zero;
 	private Vector3 movementInput = Vector3.zero;
 	private (float wallStick, float wallStickCooldown, float wallStrafeEnd) timers = (0f, 0f, 0f);
@@ -88,7 +87,7 @@ public class PlayerMovement : MonoBehaviour {
 				timers.wallStick += Time.fixedDeltaTime;
 			}, 
 			() => {
-				directionBeforeWallSticking = new Vector3(velocity.x, 0, velocity.z);
+				directionBeforeWallSticking = new Vector2(velocity.x, velocity.z);
 			},
 			() => {
 				timers.wallStick = 0f;
@@ -98,13 +97,13 @@ public class PlayerMovement : MonoBehaviour {
 
 		//wallJumping
 		State wallJumping = SM.AddState(new State("wallJumping", () => {}, () => {
-			Vector3 wallJumpDirection = Vector3.Reflect(directionBeforeWallSticking, lastHitWallNormal) * wallJumpForce;
+			Vector3 wallJumpDirection = Vector3.Reflect(new Vector3(directionBeforeWallSticking.x, 0, directionBeforeWallSticking.y), lastHitWallNormal) * wallJumpForce;
 						
 			wallJumpDirection.y = wallJumpHeight;
 			velocity = wallJumpDirection;
 		},
 		() => {
-				directionBeforeWallSticking = Vector3.zero;
+				directionBeforeWallSticking = Vector2.zero;
 			}
 		));
 
