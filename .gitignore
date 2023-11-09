@@ -1,0 +1,42 @@
+# Unity generated
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Ll]ibrary/
+[Ll]ocal[Cc]ache/
+[Ll]og/
+[Ll]ibrary/ScriptAssemblies/
+[Ll]ibrary/ShaderCache/
+[Ll]ibrary/assetDatabase3/
+[Ll]ibrary/metadata/
+[Ll]ibrary/previews/
+[Ll]ibrary/psd/
+[Ll]ibrary/packageCache/
+
+# Unity AssetImportWorker log files
+Library/Logs/AssetImportWorker_*.log
+
+# Visual Studio files
+.vscode/
+.vs/
+
+# User-specific files
+[Oo]bj/
+[Ll]ibrary/
+[Ll]ocalSettings/
+
+# Auto-generated project files
+[Tt]emp/
+[Bb]uild/
+[Bb]uilds/
+
+# MonoDevelop
+[Ee]xportedObj/
+[Ll]ibraries/
+
+# Ignore Visual Studio Code's workspace settings
+.vscode/
+
+# OS generated files
+.DS_Store
+.Thumbs.db

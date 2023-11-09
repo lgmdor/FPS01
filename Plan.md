@@ -1,0 +1,14 @@
+- Arena
+  - Small
+  - Square shape
+- Player
+  - Can move
+  - Can shoot
+- Enemies
+  - Spawn randomly
+  - Can move
+  - Can attack player
+  - Can die
+- Game
+  - Starts in arena
+  - Can be restarted after player dies
